@@ -3,9 +3,7 @@
 import { useEffect, useState } from 'react';
 import {
   CheckCircle,
-  Clock,
-  ArrowUpCircle,
-  Calendar
+  Clock
 } from 'lucide-react';
 import { useAuthStore } from '@/store/auth-store';
 import { useTimerStore } from '@/store/timer-store';
@@ -48,7 +46,7 @@ interface DashboardStats {
 
 export default function DashboardPage() {
   const { user } = useAuthStore();
-  const { activeTimer, startTimer, completeTimer } = useTimerStore();
+  const { activeTimer, completeTimer } = useTimerStore();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dashboardData, setDashboardData] = useState<DashboardStats | null>(null);
