@@ -184,7 +184,7 @@ export const useTimerStore = create<TimerState>()(
           let socketId = '';
           try {
             socketId = socketClient.getSocketId();
-          } catch (socketError) {
+          } catch {
             // Continue without socket
           }
 

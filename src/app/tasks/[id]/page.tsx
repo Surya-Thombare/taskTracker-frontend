@@ -36,7 +36,6 @@ export default function TaskDetailsPage() {
   const {
     activeTimer,
     startTimer,
-    completeTimer,
     fetchTimerHistory,
     timerHistory
   } = useTimerStore();

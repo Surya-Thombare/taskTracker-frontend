@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Users, ArrowRight } from 'lucide-react';
 import { Group } from '@/types/group';
 import { ROUTES } from '@/lib/constants';
-import { formatTimeAgo, getInitials } from '@/lib/utils';
+import Image from 'next/image';
 
 interface GroupCardProps {
   group: Group;
@@ -26,7 +26,7 @@ export default function GroupCard({ group }: GroupCardProps) {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             {group.avatar ? (
-              <img
+              <Image
                 src={group.avatar}
                 alt={group.name}
                 className="h-12 w-12 rounded-lg object-cover"

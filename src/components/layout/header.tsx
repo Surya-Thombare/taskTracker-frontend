@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Bell, User } from 'lucide-react';
+import { Bell } from 'lucide-react';
 import { useAuthStore } from '@/store/auth-store';
 import { useTimerStore } from '@/store/timer-store';
 import { formatDuration } from '@/lib/utils';
@@ -17,7 +17,7 @@ export default function Header() {
         {/* Mobile logo - only show on small screens */}
         <div className="md:hidden">
           <Link href={ROUTES.DASHBOARD}>
-            <img src="/logo.svg" alt="TaskTrack" className="h-8 w-8" />
+            <Image src="/logo.svg" alt="TaskTrack" className="h-8 w-8" />
           </Link>
         </div>
       </div>

@@ -3,8 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import {
   loginUser,
   logoutUser,
-  getUserProfile,
-  refreshAccessToken
+  getUserProfile
 } from '@/lib/auth';
 import { User, LoginCredentials } from '@/types/auth';
 import { LOCAL_STORAGE_KEYS } from '@/lib/constants';
@@ -23,7 +22,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       isAuthenticated: false,
       isLoading: false,
@@ -65,7 +64,7 @@ export const useAuthStore = create<AuthState>()(
             isAuthenticated: false,
             isLoading: false,
           });
-        } catch (error) {
+        } catch {
           set({ isLoading: false });
           // Still clear local data even if the API call fails
           localStorage.removeItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);

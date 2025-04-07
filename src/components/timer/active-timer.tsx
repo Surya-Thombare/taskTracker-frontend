@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { PlayCircle, PauseCircle, StopCircle, XCircle } from 'lucide-react';
 import { Timer } from '@/types/timer';

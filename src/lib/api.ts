@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 import { API_URL, LOCAL_STORAGE_KEYS } from './constants';
 import { refreshAccessToken } from './auth';
 
