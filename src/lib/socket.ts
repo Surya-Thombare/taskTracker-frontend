@@ -19,7 +19,7 @@ class SocketClient {
 
   connect(): string {
     if (this.socket && this.socket.connected) {
-      return this.socket.id;
+      return this.socket.id || '';
     }
 
     const token = localStorage.getItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
