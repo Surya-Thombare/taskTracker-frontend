@@ -60,10 +60,14 @@ export default function RegisterForm() {
 
       // Redirect to dashboard
       router.push(ROUTES.DASHBOARD);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error('Registration error:', err);
-      if (err.response?.data?.message) {
-        setError(err.response.data.message);
+      if (err && typeof err === 'object' && 'response' in err &&
+        err.response && typeof err.response === 'object' &&
+        'data' in err.response && err.response.data &&
+        typeof err.response.data === 'object' &&
+        'message' in err.response.data) {
+        setError(err.response.data.message as string);
       } else if (err instanceof Error) {
         setError(err.message);
       } else {
