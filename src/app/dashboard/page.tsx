@@ -94,6 +94,67 @@ export default function DashboardPage() {
     return null;
   }
 
+
+
+
+  // Function to create sample tasks for the dashboard
+  const createSampleTasks = (dashboardData: DashboardStats, userId: string = ''): Task[] => {
+    const currentDate = new Date().toISOString();
+
+    // Define default task properties
+    const defaultTaskProps = {
+      creator: userId,
+      tags: [] as string[],
+      assignees: [] as string[],
+      dueDate: currentDate,
+      createdAt: currentDate
+    };
+
+    // Define task templates
+    const taskTemplates = {
+      pending: {
+        _id: '1',
+        title: 'Pending Task',
+        description: 'This is a pending task',
+        status: 'pending' as TaskStatus,
+        priority: 'medium' as TaskPriority,
+        estimatedTime: 60,
+        group: 'group-id-1', // Using string ID for group
+        ...defaultTaskProps
+      },
+      inProgress: {
+        _id: '2',
+        title: 'In Progress Task',
+        description: 'This is an in-progress task',
+        status: 'in-progress' as TaskStatus,
+        priority: 'high' as TaskPriority,
+        estimatedTime: 120,
+        group: 'group-id-2', // Using string ID for group
+        ...defaultTaskProps
+      },
+      completed: {
+        _id: '3',
+        title: 'Completed Task',
+        description: 'This is a completed task',
+        status: 'completed' as TaskStatus,
+        priority: 'low' as TaskPriority,
+        estimatedTime: 30,
+        group: 'group-id-3', // Using string ID for group
+        ...defaultTaskProps
+      }
+    };
+
+    // Create tasks array based on dashboard counts
+    const tasks: Task[] = [
+      ...(dashboardData.taskCounts.pending > 0 ? [taskTemplates.pending] : []),
+      ...(dashboardData.taskCounts.inProgress > 0 ? [taskTemplates.inProgress] : []),
+      ...(dashboardData.taskCounts.recentlyCompleted > 0 ? [taskTemplates.completed] : [])
+    ];
+
+    return tasks;
+  };
+
+
   return (
     <div className="space-y-6">
       <div>
@@ -165,51 +226,7 @@ export default function DashboardPage() {
         {/* Tasks */}
         <div className="lg:col-span-1">
           <RecentTasks
-            tasks={[
-              // Combine pending and in-progress tasks for the recent tasks list
-              ...dashboardData.taskCounts.pending > 0 ? [{
-                _id: '1',
-                title: 'Pending Task',
-                description: 'This is a pending task',
-                status: 'pending',
-                priority: 'medium',
-                dueDate: new Date().toISOString(),
-                group: { name: 'Test Group' },
-                creator: user?._id || '',
-                estimatedTime: 60,
-                tags: [],
-                assignees: [],
-                createdAt: new Date().toISOString()
-              }] : [],
-              ...dashboardData.taskCounts.inProgress > 0 ? [{
-                _id: '2',
-                title: 'In Progress Task',
-                description: 'This is an in-progress task',
-                status: 'in-progress',
-                priority: 'high',
-                dueDate: new Date().toISOString(),
-                group: { name: 'Test Group' },
-                creator: user?._id || '',
-                estimatedTime: 120,
-                tags: [],
-                assignees: [],
-                createdAt: new Date().toISOString()
-              }] : [],
-              ...dashboardData.taskCounts.recentlyCompleted > 0 ? [{
-                _id: '3',
-                title: 'Completed Task',
-                description: 'This is a completed task',
-                status: 'completed',
-                priority: 'low',
-                dueDate: new Date().toISOString(),
-                group: { name: 'Test Group' },
-                creator: user?._id || '',
-                estimatedTime: 30,
-                tags: [],
-                assignees: [],
-                createdAt: new Date().toISOString()
-              }] : [],
-            ]}
+            tasks={createSampleTasks(dashboardData, user?._id || '')}
           />
         </div>
       </div>

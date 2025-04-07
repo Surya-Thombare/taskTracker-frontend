@@ -17,7 +17,7 @@ export default function Header() {
         {/* Mobile logo - only show on small screens */}
         <div className="md:hidden">
           <Link href={ROUTES.DASHBOARD}>
-            <Image src="/logo.svg" alt="TaskTrack" className="h-8 w-8" />
+            <Image src="/logo.svg" width={20} alt="TaskTrack" className="h-8 w-8" />
           </Link>
         </div>
       </div>

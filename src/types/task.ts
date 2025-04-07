@@ -9,7 +9,7 @@ export interface Task {
   title: string;
   description: string;
   creator: string | User;
-  group: string | Group;
+  group?: string | Group;
   status: TaskStatus;
   priority: TaskPriority;
   estimatedTime: number; // in minutes

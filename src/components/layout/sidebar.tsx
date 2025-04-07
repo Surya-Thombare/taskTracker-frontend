@@ -79,7 +79,7 @@ export default function Sidebar() {
     <div className="w-64 h-full bg-white border-r border-gray-200 flex flex-col">
       <div className="p-6">
         <Link href={ROUTES.DASHBOARD} className="flex items-center">
-          <Image src="/logo.svg" alt="TaskTrack" className="h-8 w-8 mr-2" />
+          <Image src="/logo.svg" width={20} alt="TaskTrack" className="h-8 w-8 mr-2" />
           <span className="text-xl font-bold">TaskTrack</span>
         </Link>
       </div>
