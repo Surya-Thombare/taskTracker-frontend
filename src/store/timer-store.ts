@@ -92,7 +92,7 @@ export const useTimerStore = create<TimerState>()(
           }
         } catch (error) {
           // If 404 error, it means no active timer (which is fine)
-          if (error.response?.status === 404) {
+          if (error && typeof error === 'object' && 'response' in error && (error.response as { status?: number })?.status === 404) {
             set({
               activeTimer: null,
               startTime: null,
