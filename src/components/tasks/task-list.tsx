@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Task } from '@/types/task';
 import { TASK_STATUSES, TASK_PRIORITIES } from '@/lib/constants';
 import TaskCard from './task-card';
-import { useTaskStore } from '@/store/task-store';
 
 interface TaskListProps {
   tasks: Task[];
