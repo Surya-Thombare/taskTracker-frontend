@@ -12,6 +12,7 @@ import api from '@/lib/api';
 import StatsCard from '@/components/dashboard/stats-card';
 import ActivityChart from '@/components/dashboard/activity-chart';
 import RecentTasks from '@/components/dashboard/recent-tasks';
+import { Task, TaskPriority, TaskStatus } from '@/types/task';
 
 interface DashboardStats {
   userStats: {
