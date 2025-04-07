@@ -25,7 +25,7 @@ export default function Header() {
       {/* Active timer display */}
       {activeTimer && (
         <div className="hidden md:flex items-center bg-blue-50 px-4 py-2 rounded-lg">
-          <Timer size={20} className="text-blue-500 mr-2" />
+          <Timer height={20} width={20} className="text-blue-500 mr-2" />
           <div>
             <div className="text-sm text-blue-900 font-medium">
               {typeof activeTimer.task === 'object' ? activeTimer.task.title : 'Current Task'}
