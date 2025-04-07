@@ -14,7 +14,6 @@ import {
   LogOut,
   ShieldAlert,
   UserMinus,
-  Trash,
   CheckCircle,
   Clock,
   AlertCircle
@@ -25,6 +24,7 @@ import { useTaskStore } from '@/store/task-store';
 import { ROUTES } from '@/lib/constants';
 import { formatDuration, getInitials } from '@/lib/utils';
 import GroupForm from '@/components/groups/group-form';
+import Image from 'next/image';
 
 export default function GroupDetailsPage() {
   const { id } = useParams();
@@ -261,7 +261,7 @@ export default function GroupDetailsPage() {
               <div className="flex items-start justify-between">
                 <div className="flex items-center">
                   {currentGroup.avatar ? (
-                    <img
+                    <Image
                       src={currentGroup.avatar}
                       alt={currentGroup.name}
                       className="h-16 w-16 rounded-lg object-cover"
@@ -468,7 +468,7 @@ export default function GroupDetailsPage() {
                             <li key={leaderId} className="flex items-center justify-between">
                               <div className="flex items-center">
                                 {leaderAvatar ? (
-                                  <img
+                                  <Image
                                     src={leaderAvatar}
                                     alt={leaderName}
                                     className="h-8 w-8 rounded-full object-cover"
@@ -527,7 +527,7 @@ export default function GroupDetailsPage() {
                             <li key={memberId} className="flex items-center justify-between">
                               <div className="flex items-center">
                                 {memberAvatar ? (
-                                  <img
+                                  <Image
                                     src={memberAvatar}
                                     alt={memberName}
                                     className="h-8 w-8 rounded-full object-cover"
@@ -672,7 +672,7 @@ export default function GroupDetailsPage() {
                               <td className="px-3 py-4 whitespace-nowrap">
                                 <div className="flex items-center">
                                   {entry.user.avatar ? (
-                                    <img
+                                    <Image
                                       src={entry.user.avatar}
                                       alt={entry.user.name}
                                       className="h-8 w-8 rounded-full object-cover"

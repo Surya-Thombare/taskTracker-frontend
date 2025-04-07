@@ -21,6 +21,7 @@ export default function GroupsPage() {
   const [creating, setCreating] = useState(false);
   const [joinCode, setJoinCode] = useState('');
   const [joiningGroup, setJoiningGroup] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [joinError, setJoinError] = useState<string | null>(null);
 
   useEffect(() => {
