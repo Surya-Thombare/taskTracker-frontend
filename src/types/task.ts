@@ -31,12 +31,14 @@ export interface CreateTaskRequest {
   priority: TaskPriority;
   tags?: string[];
   assigneeIds?: string[];
+  status?: TaskStatus;
 }
 
 export interface UpdateTaskRequest {
   title?: string;
   description?: string;
   estimatedTime?: number;
+  groupId?: string;
   dueDate?: string;
   priority?: TaskPriority;
   status?: TaskStatus;
